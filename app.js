@@ -25,25 +25,27 @@ const cartRoutes = require('./routes/cart')
 const productApi = require('./routes/api/productapi');
 const paymentRoutes = require('./routes/payment');
 
-const dbURL = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/shopping-sam-app';
+const dbURL = process.env.MONGO_URL ;
 
 mongoose.set('strictQuery', true);
 mongoose.connect(dbURL)
     .then(() => console.log('DB Connected'))
     .catch((err) => console.log(err));
 
-
+let secret = process.env.SECRET;
 let store = MongoStore.create({
-   
+   secret:secret,
     mongoUrl: dbURL,
     touchAfter:24*60*60
 })
 
 
+
+
 //session
 let configSession = {
   store: store,
-  secret: 'keyboard cat',
+  secret: secret,
     resave: false,
     saveUninitialized: true,
     cookies: { 
