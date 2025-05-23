@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router() //mini instance
 const {isLoggedIn} = require('../middleware');
 const Product = require('../models/Product');
-const User = require('../models/User');
-const stripe = require('stripe')('sk_test_tR3PYbcVNZZ796tH88S4VQ2u');// it is a test key which provide the access of payemnt gateway
+const User = require('../models/User')
 
 
 
