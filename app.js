@@ -25,7 +25,7 @@ const cartRoutes = require('./routes/cart')
 const productApi = require('./routes/api/productapi');
 const paymentRoutes = require('./routes/payment');
 
-const dbURL = process.env.MONGO_URL ;
+const dbURL = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/shopping-sam-app';
 
 mongoose.set('strictQuery', true);
 mongoose.connect(dbURL)
