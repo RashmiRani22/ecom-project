@@ -32,7 +32,7 @@ mongoose.connect(dbURL)
     .then(() => console.log('DB Connected'))
     .catch((err) => console.log(err));
 
-let secret = process.env.SECRET;
+let secret = process.env.SECRET|| 'weneedabettersecretkey';
 let store = MongoStore.create({
    secret:secret,
     mongoUrl: dbURL,
