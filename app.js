@@ -33,10 +33,16 @@ mongoose.connect(dbURL)
     .catch((err) => console.log(err));
 
 
+let store = MongoStore.create({
+   
+    mongoUrl: dbURL,
+    touchAfter:24*60*60
+})
 
 
 //session
 let configSession = {
+  store: store,
   secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
