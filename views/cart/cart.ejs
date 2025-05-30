@@ -27,9 +27,9 @@
         <div class="col-lg-4">
             <ul class="list-group">
                 <% for(let item of user.cart) {%>
-                    <li class="list-group-item"><span class="fw-bold"><%=item.name%> - </span>$ <%=item.price%> <span></span></li>
+                    <li class="list-group-item"><span class="fw-bold"><%=item.name%> - </span>Rs <%=item.price%> <span></span></li>
                 <% } %> 
-                <li class="list-group-item fw-bold">Total Amount : $ <%=totalAmount%></li>
+                <li class="list-group-item fw-bold">Total Amount : Rs <%=totalAmount%></li>
             </ul>
             <form action="/payment_gateway/payumoney" method="POST">
               <input type="hidden" name="amount" value="<%=totalAmount%>"/>
